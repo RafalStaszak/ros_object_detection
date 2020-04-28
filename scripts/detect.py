@@ -14,14 +14,19 @@ from object_detection.utils import label_map_util
 from object_detection.utils import visualization_utils as vis_util
 from ros_object_detection.msg import BoundingBoxes, BoundingBox
 
-from PIL import Image as PILImage
-
-tf.enable_eager_execution()
 # patch tf1 into `utils.ops`
 utils_ops.tf = tf.compat.v1
 
 # Patch the location of gfile
 tf.gfile = tf.io.gfile
+
+
+def version(v):
+    return tuple(map(int, (v.split("."))))
+
+
+if version(tf.__version__) < version('2.0.0'):
+    tf.enable_eager_execution()
 
 
 class ObjectDetection:
