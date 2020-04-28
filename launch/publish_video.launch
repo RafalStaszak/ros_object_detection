@@ -2,7 +2,7 @@
     <arg name="image" default="/traffic/image"/>
     <param name="video_path" value="/root/Shared/rouen_video.avi"/>
     <param name="loop" value="true" type="bool"/>
-    <param name="scale" value="0.3" type="double"/>
+    <param name="scale" value="0.5" type="double"/>
     <param name="fps" value="10" type="int"/>
 
   

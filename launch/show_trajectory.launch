@@ -1,0 +1,9 @@
+<launch>
+    <arg name="output_image" default="/traffic/trajectory"/>
+    <arg name="bounding_box" default="/traffic/bounding_box"/>
+
+    <node pkg="ros_object_detection" name="show_trajectory" type="show_trajectory.py" output="screen">
+        <remap from="/trajectory" to="$(arg output_image)"/>
+        <remap from="/bounding_box" to="$(arg bounding_box)"/>
+    </node>
+</launch>
