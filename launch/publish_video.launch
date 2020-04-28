@@ -1,0 +1,12 @@
+<launch>
+    <arg name="image" default="/traffic/image"/>
+    <param name="video_path" value="/root/Shared/rouen_video.avi"/>
+    <param name="loop" value="true" type="bool"/>
+    <param name="scale" value="0.3" type="double"/>
+    <param name="fps" value="10" type="int"/>
+
+  
+    <node pkg="ros_object_detection" name="publish_video" type="publish_video.py" output="screen">
+        <remap from="/image" to="$(arg image)"/>
+    </node>
+</launch>

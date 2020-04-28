@@ -1,0 +1,9 @@
+<launch>
+    <arg name="input_image" default="/traffic/image_annotated"/>
+    <arg name="point_cloud" default="/traffic/point_cloud"/>
+
+    <node pkg="ros_object_detection" name="image_to_pcl" type="image_to_pcl.py" output="screen">
+        <remap from="/image" to="$(arg input_image)"/>
+        <remap from="/point_cloud" to="$(arg point_cloud)"/>
+    </node>
+</launch>

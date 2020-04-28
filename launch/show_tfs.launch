@@ -1,0 +1,6 @@
+<launch>
+    <arg name="bounding_box" default="/traffic/bounding_box"/>
+    <node pkg="ros_object_detection" name="show_tfs" type="show_tfs.py" output="screen">
+        <remap from="/bounding_box" to="$(arg bounding_box)"/>
+    </node>
+</launch>

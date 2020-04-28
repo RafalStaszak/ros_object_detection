@@ -1,0 +1,11 @@
+<launch>
+    <arg name="input_point_cloud" default="/traffic/point_cloud"/>
+    <arg name="output_point_cloud" default="/traffic/point_cloud_detection"/>
+    <arg name="bounding_box" default="/traffic/bounding_box"/>
+
+    <node pkg="ros_object_detection" name="show_on_pcl" type="show_on_pcl.py" output="screen">
+        <remap from="/point_cloud" to="$(arg input_point_cloud)"/>
+        <remap from="/point_cloud_detection" to="$(arg output_point_cloud)"/>
+        <remap from="/bounding_box" to="$(arg bounding_box)"/>
+    </node>
+</launch>

@@ -1,0 +1,14 @@
+<launch>
+    <arg name="input_image" default="/traffic/image"/>
+    <arg name="output_image" default="/traffic/image_annotated"/>
+    <arg name="bounding_box" default="/traffic/bounding_box"/>
+    <param name="label_map" value="/root/Shared/ros_object_detection/label_map.pbtxt"/>
+    <param name="model" value="/root/Shared/ros_object_detection/traffic_inference_graph"/>
+    <param name="score_thresh" value="0.5" type="double"/>
+
+    <node pkg="ros_object_detection" name="detect" type="detect.py" output="screen">
+        <remap from="/image" to="$(arg input_image)"/>
+        <remap from="/image_annotated" to="$(arg output_image)"/>
+        <remap from="/bounding_box" to="$(arg bounding_box)"/>
+    </node>
+</launch>
