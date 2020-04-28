@@ -37,16 +37,11 @@ class Callbacks:
 
             for point in data:
                 x, y, z, rgba = point
-                for box in self.boxes.data:
-                    if box.xmin <= x/2+0.5 <= box.xmax and box.ymin <= -y/2+0.5 <= box.ymax:
-                        z = 0.5
-                        break
                 points.append([x, y, z, rgba])
 
             fields = [PointField('x', 0, PointField.FLOAT32, 1),
                       PointField('y', 4, PointField.FLOAT32, 1),
                       PointField('z', 8, PointField.FLOAT32, 1),
-                      # PointField('rgb', 12, PointField.UINT32, 1),
                       PointField('rgba', 12, PointField.UINT32, 1),
                       ]
 
@@ -57,7 +52,7 @@ class Callbacks:
 
 
 if __name__ == '__main__':
-    rospy.init_node('highlight_markers')
+    rospy.init_node('show_on_pcl')
     callbacks = Callbacks()
     try:
         rate = rospy.Rate(100)  # 100hz
