@@ -15,7 +15,7 @@ def image_to_pointcloud(data):
     image = CvBridge().imgmsg_to_cv2(data)
     h, w = np.shape(image)[:2]
 
-    image = cv2.resize(image, (100, 100 * w / h))
+    image = cv2.resize(image, (100, 100 * w // h))
     h, w = np.shape(image)[:2]
 
     points = []
