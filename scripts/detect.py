@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import rospy
 from cv_bridge import CvBridge, CvBridgeError
@@ -138,7 +138,7 @@ class ObjectDetection:
 
             self.subscribe_lock = False
         else:
-            print 'Not Entered'
+            print('Not Entered')
 
 
 if __name__ == '__main__':
